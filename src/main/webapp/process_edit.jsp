@@ -10,6 +10,15 @@
         response.sendRedirect("list_students.jsp?error=Invalid data");
         return;
     }
+  
+    if (email != null && !email.isEmpty()) {
+    if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+        // Invalid email format
+        response.sendRedirect("add_student.jsp?error=Invalid email format");
+        return;
+    }
+ }
+
     
     int studentId = Integer.parseInt(idParam);
     
